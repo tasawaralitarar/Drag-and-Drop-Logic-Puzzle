@@ -239,3 +239,23 @@ resetButton.addEventListener('click', () => {
 
 // Start the game when the page loads
 document.addEventListener('DOMContentLoaded', initGame);
+// Function to create the draggable pieces in the inventory
+function createInventoryPieces() {
+    inventory.innerHTML = '<h2>Inventory</h2>'; // Clear inventory first
+    
+    // ... (rest of the logic)
+    
+    requiredPieces.forEach(item => {
+        for (let i = 0; i < item.count; i++) {
+            const piece = document.createElement('div');
+            piece.classList.add('pipe-piece', `type-${item.type}`); // <--- Ensure type-X class is added
+            piece.setAttribute('draggable', true);
+            // ... (rest of the logic)
+            
+            // Add a temporary text label to ensure visibility and drag-ability
+            piece.textContent = item.type; 
+            
+            inventory.appendChild(piece);
+        }
+    });
+}

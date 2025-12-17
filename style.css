@@ -114,3 +114,43 @@ body {
 .end-cell {
     background-color: #e74c3c !important; /* Red for End */
 }
+/* Update the .pipe-piece style to show the background pipe image */
+.pipe-piece {
+    width: 90px;
+    height: 90px;
+    background-color: #95a5a6;
+    border: 2px solid #34495e;
+    border-radius: 5px;
+    cursor: grab;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    
+    /* ADD these two lines to make the pipe image visible in the inventory */
+    background-size: 80%; /* Make pipe smaller than container */
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
+/* Ensure type-X classes are correctly defined for inventory items */
+.pipe-piece.type-I {
+    /* Straight pipe - visible in inventory */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><line x1='50' y1='10' x2='50' y2='90' stroke='white' stroke-width='10'/></svg>");
+}
+.pipe-piece.type-L {
+    /* Corner pipe - visible in inventory */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><polyline points='10 50, 50 50, 50 90' stroke='white' stroke-width='10' fill='none'/></svg>");
+}
+.pipe-piece.type-T {
+    /* T-Junction pipe - visible in inventory */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><line x1='10' y1='50' x2='90' y2='50' stroke='white' stroke-width='10'/><line x1='50' y1='10' x2='50' y2='50' stroke='white' stroke-width='10'/></svg>");
+}
+
+
+/* Style for the piece when it is correctly placed in the drop target */
+.pipe-piece-placed {
+    /* ... (Existing styles) ... */
+    background-size: cover; /* Pipe should fill the drop cell */
+}
